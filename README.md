@@ -1,50 +1,95 @@
+# PetPaw - Pet Care Services App
 
-# TypeScript
+A comprehensive mobile application for pet owners, service providers, and vendors, built with React Native and Supabase.
 
-[![GitHub Actions CI](https://github.com/microsoft/TypeScript/workflows/CI/badge.svg)](https://github.com/microsoft/TypeScript/actions?query=workflow%3ACI)
-[![npm version](https://badge.fury.io/js/typescript.svg)](https://www.npmjs.com/package/typescript)
-[![Downloads](https://img.shields.io/npm/dm/typescript.svg)](https://www.npmjs.com/package/typescript)
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/microsoft/TypeScript/badge)](https://securityscorecards.dev/viewer/?uri=github.com/microsoft/TypeScript)
+## Features
 
+- User Authentication
+- Pet Profiles Management
+- Veterinary Services
+- Pet Sitting Services
+- Pet Products Marketplace
+- Pet Adoption Platform
+- Appointment Scheduling
+- Order Management
 
-[TypeScript](https://www.typescriptlang.org/) is a language for application-scale JavaScript. TypeScript adds optional types to JavaScript that support tools for large-scale JavaScript applications for any browser, for any host, on any OS. TypeScript compiles to readable, standards-based JavaScript. Try it out at the [playground](https://www.typescriptlang.org/play/), and stay up to date via [our blog](https://blogs.msdn.microsoft.com/typescript) and [Twitter account](https://twitter.com/typescript).
+## Tech Stack
 
-Find others who are using TypeScript at [our community page](https://www.typescriptlang.org/community/).
+- Frontend: React Native with Expo (TypeScript)
+- Backend: Supabase (PostgreSQL)
+- Storage: Supabase Storage
+- Authentication: Supabase Auth
 
-## Installing
+## Prerequisites
 
-For the latest stable version:
+- Node.js (v14 or later)
+- npm or yarn
+- Expo CLI
+- Supabase Account
 
+## Setup Instructions
+
+1. Clone the repository:
 ```bash
-npm install -D typescript
+git clone <repository-url>
+cd app
 ```
 
-For our nightly builds:
-
+2. Install dependencies:
 ```bash
-npm install -D typescript@next
+npm install
 ```
 
-## Contribute
+3. Create a Supabase project:
+   - Go to https://supabase.com
+   - Create a new project
+   - Copy the SQL from `supabase/schema.sql` and run it in the SQL editor
+   - Get your project URL and anon key
 
-There are many ways to [contribute](https://github.com/microsoft/TypeScript/blob/main/CONTRIBUTING.md) to TypeScript.
-* [Submit bugs](https://github.com/microsoft/TypeScript/issues) and help us verify fixes as they are checked in.
-* Review the [source code changes](https://github.com/microsoft/TypeScript/pulls).
-* Engage with other TypeScript users and developers on [StackOverflow](https://stackoverflow.com/questions/tagged/typescript).
-* Help each other in the [TypeScript Community Discord](https://discord.gg/typescript).
-* Join the [#typescript](https://twitter.com/search?q=%23TypeScript) discussion on Twitter.
-* [Contribute bug fixes](https://github.com/microsoft/TypeScript/blob/main/CONTRIBUTING.md).
+4. Create a `.env` file in the root directory:
+```
+SUPABASE_URL=your_supabase_project_url
+SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see
-the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com)
-with any additional questions or comments.
+5. Start the development server:
+```bash
+npm start
+```
 
-## Documentation
+6. Run on your preferred platform:
+```bash
+# For iOS
+npm run ios
 
-*  [TypeScript in 5 minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
-*  [Programming handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
-*  [Homepage](https://www.typescriptlang.org/)
+# For Android
+npm run android
+```
 
-## Roadmap
+## Project Structure
 
-For details on our planned features and future direction, please refer to our [roadmap](https://github.com/microsoft/TypeScript/wiki/Roadmap).
+```
+app/
+├── src/
+│   ├── components/      # Reusable UI components
+│   ├── screens/         # Screen components
+│   ├── navigation/      # Navigation configuration
+│   ├── services/        # API and service integrations
+│   ├── types/           # TypeScript type definitions
+│   └── utils/           # Utility functions
+├── assets/             # Images, fonts, etc.
+├── supabase/           # Supabase related files
+└── App.tsx            # Root component
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+This project is licensed under the MIT License.
