@@ -1,5 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import theme from 'styles/theme';
 
 interface ButtonProps {
   onPress: () => void;
@@ -35,15 +36,16 @@ export const Button: React.FC<ButtonProps> = ({
 const styles = StyleSheet.create({
   button: {
     padding: 12,
-    borderRadius: 8,
+    borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
   },
   primary: {
-    backgroundColor: '#4A90E2',
+    backgroundColor: theme.colors.primary,
   },
   secondary: {
-    backgroundColor: '#6C757D',
+    backgroundColor: theme.colors.shadow,
+    
   },
   outline: {
     backgroundColor: 'transparent',
@@ -55,10 +57,10 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   primaryText: {
-    color: '#FFFFFF',
+    color: theme.colors.background,
   },
   secondaryText: {
-    color: '#FFFFFF',
+    color: theme.colors.primary,
   },
   outlineText: {
     color: '#4A90E2',

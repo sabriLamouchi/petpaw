@@ -9,6 +9,8 @@ import { MainLayout } from './src/layouts/MainLayout';
 import { AuthLayout } from './src/layouts/AuthLayout';
 import OnboardingScreen from './src/screens/onboarding/OnboardingScreen';
 import WelcomeScreen from './src/screens/welcome/WelcomeScreen';
+import {LoginScreen} from './src/screens/auth/LoginScreen';
+import RegisterScreen from './src/screens/auth/RegisterScreen';
 import { useFonts } from 'expo-font';
 import { Poppins_400Regular, Poppins_700Bold } from '@expo-google-fonts/poppins';
 import theme from 'styles/theme';
@@ -47,14 +49,17 @@ function AppContent() {
                   beforeRemove: () => setHasSeenOnboarding(true),
                 }}
               />
-              <Stack.Screen name="Auth" component={AuthLayout} />
             </>
-          ) : isAuthenticated ? (
-            <Stack.Screen name="Main" component={MainLayout} />
           ) : (
-            <Stack.Screen name="Auth" component={AuthLayout} />
-          )}  
-
+            <>
+              <Stack.Screen name="Auth" component={AuthLayout} />
+              <Stack.Screen name="LoginScreen" component={LoginScreen} />
+              <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+              {isAuthenticated ? (
+                <Stack.Screen name="Main" component={MainLayout} />
+              ) : null}
+            </>
+          )}
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

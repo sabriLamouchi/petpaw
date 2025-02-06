@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import {
   View,
   Text,
-  TextInput,
   StyleSheet,
   TouchableOpacity,
   Alert,
+  Dimensions,
 } from 'react-native';
 import { supabase } from '../../services/supabase';
 import { Button } from '../../components/Button';
-
+import CustomTextInput from '../../components/CustomTextInput';
+import theme from 'styles/theme';
+import fonts from 'styles/fonts';
+const { width, height } = Dimensions.get('window');
 interface LoginScreenProps {
   onRegisterPress: () => void;
   onLoginSuccess?: () => void;
@@ -44,23 +47,27 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome Back!</Text>
-      
-      <TextInput
-        style={styles.input}
+            <View style={{...styles.topView,right:width/3.5}}/>
+            <View style={{...styles.topView,left:width/3.5}}/>
+      <Text style={styles.title}>LOGIN</Text>
+      <Text style={{}}>Email address</Text>
+      <CustomTextInput
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
-        autoCapitalize="none"
         keyboardType="email-address"
+        textContentType="emailAddress"
+        logoName='mail'
       />
-      
-      <TextInput
-        style={styles.input}
+      <Text style={{}}>Password</Text>
+      <CustomTextInput
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
+        textContentType="password"
+        isPassword
+        logoName='lock'
       />
       
       <Button 
@@ -85,17 +92,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontSize: 24,
+    fontSize: theme.fontSizes.xlarge,
     fontWeight: 'bold',
-    marginBottom: 30,
     textAlign: 'center',
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ddd',
-    padding: 15,
-    marginBottom: 15,
-    borderRadius: 8,
+    fontFamily:fonts.bold,
+    color:theme.colors.background,
+    position:'absolute',
+    top:100,
+    left:width/4,
+    right:width/4
   },
   button: {
     marginTop: 10,
@@ -108,4 +113,12 @@ const styles = StyleSheet.create({
     color: '#4A90E2',
     fontSize: 16,
   },
+  topView:{
+    backgroundColor:theme.colors.secondary,
+    height:height*0.3,
+    width:width,
+    position:'absolute',
+    top:-20,
+    borderRadius:'50%'
+  }
 });
